@@ -10,7 +10,6 @@ export default function Home() {
   const [activeButton, setActiveButton] = useState(0);
 
   const handleClick = (state) => {
-    console.log("Hi");
     setActiveButton(state);
   };
 
@@ -25,7 +24,7 @@ export default function Home() {
         ${activeButton == 2 ? "translate-y-[100vh]" : ""}
         ${activeButton == 3 ? "translate-x-[-100vw]" : ""}`}>
         <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-4">Thomas Stanway</h1>
-        <p className="text-lg md:text-xl">Programmer</p>
+        <p className="text-lg md:text-xl">Software Developer</p>
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 mt-4">
           <button className={`py-2 border-2 bg-transparent text-white rounded-lg hover:shadow-lg transition-all duration-300`} onClick={() => handleClick(1)}>About</button>
           <button className={`py-2 border-2 bg-transparent text-white rounded-lg hover:shadow-lg transition-all duration-300`} onClick={() => handleClick(2)}>Experience</button>
@@ -53,6 +52,7 @@ export default function Home() {
       <div className={`m-4 absolute transition-all duration-500 ${activeButton == 2 ? "" : "translate-y-[-100vh]"}`}>
         <h1 className="text-4xl md:text-4xl lg:text-6xl font-bold">Experience</h1>
         <div className="max-h-96 mt-4 mb-4 overflow-y-auto snap-y">
+          <ExperienceTemplate date="July 2024 - Present" title="Software Developer" company="Thoughtbubble" description="Dont forget to put a descripton here"/>
           <ExperienceTemplate date="August - October 2023" title="Games programmer internship" company="Huey Games" description="Working as part of a programming team developing a new puzzle-platforming game called Mechinus. My role was to implement and improve some of the game mechanics, using design documentation and responding to feedback from senior game designers. As well as gaining more experience with the Unity games engine, I used Discord, Plastic SCM, and Google Workspace to collaborate with my colleagues."/>
         </div>
         <button className={`w-32 py-2 border-2 bg-transparent text-white rounded-lg hover:shadow-lg transition-all duration-300`} onClick={() => handleClick(0)}>Back</button>
@@ -63,24 +63,26 @@ export default function Home() {
         <div className="max-h-96 mt-4 mb-4 overflow-y-auto snap-y max-w-3xl">
           <ProjectTemplate title="An AI-Enabled Top-Down Shooter Game" 
                           description='A game based on the minigame "Tanks" from Wii Play created as a final year university project made using the Unity game engine.' 
-                          link="http://users.sussex.ac.uk/~ts527/Build_2/index.html"/>
+                          link="/games/topdownshooter"/>
+
           <ProjectTemplate title="Recipe Storing App" 
                           description="An app created using the .NET MAUI cross-platform framework to store and view recipes. Recipes are stored locally inside a database using SQLite and can be easily viewed and searched for on the app's home page." 
                           link=""/>
+
           <ProjectTemplate title="Polygon Triangulation" 
                           description='Implementation of a triangulation algorithm using a sweep line approach. This allows the algorithm to work with more complex polygons such as ones with holes. Created using the Unity game engine.' 
                           link=""/>
 
           <ProjectTemplate title="Lunar Launch - SpeedJam #3 Game" 
                           description='A game created in 72 hours on the theme "Gravity / Zero Gravity" for SpeedJam #3 called "Lunar Launch". Your goal is to navigate the lunar lander around the asteroids upwards to the goal as quick as possible. Created using the Unity game engine.'
-                          link="https://tiay.itch.io/lunar-launch"/>
+                          link="/games/lunarlaunch"/>
           
           <ProjectTemplate title="Tilt Maze Plus - Acerola Jam 0" 
                           description='A games created in 2 weeks on the theme "Aberration" for the Acerola Jam 0 called "Tilt Maze Plus". Each level of the game uses the same maze layout but changes an aspect of the gameplay in unique way. This was created using the Unity game engine.' 
-                          link="https://tiay.itch.io/tilt-maze-plus"/>
+                          link="/games/tiltmazeplus"/>
 
           <ProjectTemplate title="Vector Display Effect" 
-                          description="Currently working on an effect to mimic the look of a vector monitor but allow for more complex geometry to be drawn to the screen such as 3D shapes. Made using the Unity game engine."
+                          description="An effect to mimic the look of a vector monitor but allow for more complex geometry to be drawn to the screen such as 3D shapes. Made using the Unity game engine."
                           link=""/>
           
           <ProjectTemplate title="A 3D Web Application" 
@@ -96,3 +98,5 @@ export default function Home() {
     </div>
   );
 }
+// Need to mark buttons off screen as not interactable or something
+// Need to move button stuff so whole page isnt use client
