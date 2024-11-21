@@ -2,9 +2,6 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   output: 'export',
-};
-
-module.exports = {
   async headers() {
     return [
       {
@@ -24,5 +21,8 @@ module.exports = {
     ];
   },
 };
+
+
+
 
 export default nextConfig;
