@@ -29,7 +29,7 @@ export default function Home() {
             <button tabIndex={activeButton == 0 ? 0 : -1} className={`py-2 border-2 bg-transparent text-white rounded-lg hover:shadow-lg transition-all duration-300`} onClick={() => handleClick(2)}>Experience</button>
             <button tabIndex={activeButton == 0 ? 0 : -1} className={`py-2 border-2 bg-transparent text-white rounded-lg hover:shadow-lg transition-all duration-300`} onClick={() => handleClick(3)}>Projects</button>
           </div>
-        <Footer/>
+        <Footer button={activeButton}/>
         </div>
 
         <div className={`m-4 absolute transition-all duration-500 ${activeButton == 1 ? "" : "absolute translate-x-[-100vw]"}`}>
@@ -61,40 +61,49 @@ export default function Home() {
           <h1 className="text-4xl md:text-4xl lg:text-6xl font-bold">Projects</h1>
           <div className="max-h-96 mt-4 mb-4 overflow-y-auto snap-y max-w-3xl">
             <ProjectTemplate title="An AI-Enabled Top-Down Shooter Game" 
-                            description='A game based on the minigame "Tanks" from Wii Play created as a final year university project made using the Unity game engine.' 
-                            link="/games/topdownshooter"/>
+                            description={`A game based on the minigame "Tanks" from Wii Play created as a final year university project made using the Unity game engine.` + activeButton}
+                            link="/games/topdownshooter"
+                            button={activeButton}/>
 
             <ProjectTemplate title="Portfolio Website" 
                             description="This website crated using Next.js and Tailwind css. The website also allows you to view and play some of the game projects that I have created." 
-                            link=""/>
+                            link=""
+                            button={activeButton}/>
                 
             <ProjectTemplate title="Recipe Storing App" 
                             description="An app created using the .NET MAUI cross-platform framework to store and view recipes. Recipes are stored locally inside a database using SQLite and can be easily viewed and searched for on the app's home page." 
-                            link=""/>
+                            link=""
+                            button={activeButton}/>
 
             <ProjectTemplate title="Polygon Triangulation" 
                             description='Implementation of a triangulation algorithm using a sweep line approach. This allows the algorithm to work with more complex polygons such as ones with holes. Created using the Unity game engine.' 
-                            link=""/>
+                            link=""
+                            button={activeButton}/>
 
             <ProjectTemplate title="Lunar Launch - SpeedJam #3 Game" 
                             description='A game created in 72 hours on the theme "Gravity / Zero Gravity" for SpeedJam #3 called "Lunar Launch". Your goal is to navigate the lunar lander around the asteroids upwards to the goal as quick as possible. Created using the Unity game engine.'
-                            link="/games/lunarlaunch"/>
+                            link="/games/lunarlaunch"
+                            button={activeButton}/>
             
             <ProjectTemplate title="Tilt Maze Plus - Acerola Jam 0" 
                             description='A game created in 2 weeks on the theme "Aberration" for the Acerola Jam 0 called "Tilt Maze Plus". Each level of the game uses the same maze layout but changes an aspect of the gameplay in unique way. This was created using the Unity game engine.' 
-                            link="/games/tiltmazeplus"/>
+                            link="/games/tiltmazeplus"
+                            button={activeButton}/>
 
             <ProjectTemplate title="Vector Display Effect" 
                             description="An effect to mimic the look of a vector monitor but allow for more complex geometry to be drawn to the screen such as 3D shapes. Made using the Unity game engine."
-                            link=""/>
+                            link=""
+                            button={activeButton}/>
             
             <ProjectTemplate title="A 3D Web Application" 
                             description='A website with 3D elements created using HTML5, CSS3, X3D (X3DOM), JavaScript, jQuery, Bootstrap, AJAX, PHP, SQLite, all configured in an MVC design pattern. Models were created using Autodesk 3ds Max and Blender. Created as coursework at university.' 
-                            link=""/>
+                            link=""
+                            button={activeButton}/>
 
             <ProjectTemplate title="A Networked Multiplayer Drawing Gamee" 
                             description='A game based on "Pictionary" created for an A-level project made using the Unity game engine.'
-                            link=""/>
+                            link=""
+                            button={activeButton}/>
           </div>
           <button tabIndex={activeButton == 3 ?   0 : -1} className={`w-32 py-2 border-2 bg-transparent text-white rounded-lg hover:shadow-lg transition-all duration-300`} onClick={() => handleClick(0)}>Back</button>
         </div>
@@ -102,5 +111,3 @@ export default function Home() {
     </div>
   );
 }
-// Need to mark buttons off screen as not interactable or something
-// Need to move button stuff so whole page isnt use client

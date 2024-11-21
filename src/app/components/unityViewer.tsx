@@ -1,7 +1,6 @@
 "use client"
 
 import React, { useEffect, useRef } from 'react';
-import './../../../public/unity/TemplateData/style.css';
 
 interface UnityViewerParams {
     gameName: string;
@@ -37,8 +36,8 @@ const UnityViewer: React.FC<UnityViewerParams> = ({ gameName }) => {
         script.src = buildUrl + "Build/Build.loader.js";
         script.onload = () => {          
             console.log('Unity loader script loaded successfully.');
-
-            (window as any).createUnityInstance(canvas, {
+            
+            window.createUnityInstance(canvas, {
                 dataUrl: buildUrl + "Build/Build.data",
                 frameworkUrl: buildUrl + "Build/Build.framework.js",
                 codeUrl: buildUrl + "Build/Build.wasm",
