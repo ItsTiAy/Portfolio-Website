@@ -4,7 +4,6 @@ import { SetStateAction, useState } from "react";
 import Footer from "@/app/components/footer";
 import ExperienceTemplate from "@/app/components/experienceTemplate";
 import ProjectTemplate from "@/app/components/projectTemplate";
-import Background from "@/app/components/background";
 
 export default function Home() {
 
@@ -15,9 +14,7 @@ export default function Home() {
   };
 
   return (
-    <div className="fixed w-full h-screen flex items-center justify-center">
-      <Background/>
-      <div className="relative w-full h-screen flex items-center justify-center">  
+      <div className="fixed w-full h-screen flex items-center justify-center content">  
         <div className={`m-4 absolute text-center transition-all duration-500 
           ${activeButton == 1 ? "translate-x-[100vw]" : ""}
           ${activeButton == 2 ? "translate-y-[100vh]" : ""}
@@ -108,6 +105,5 @@ export default function Home() {
           <button tabIndex={activeButton == 3 ?   0 : -1} className={`w-32 py-2 border-2 bg-transparent text-white rounded-lg hover:shadow-lg transition-all duration-300`} onClick={() => handleClick(0)}>Back</button>
         </div>
       </div>
-    </div>
   );
 }
