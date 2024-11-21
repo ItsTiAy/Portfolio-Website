@@ -31,6 +31,8 @@ const UnityViewer: React.FC<UnityViewerParams> = ({ gameName }) => {
         }
     
         const buildUrl = `/unity/${gameName}/`;
+
+        console.log(buildUrl);
         
         const script = document.createElement("script");
         script.src = buildUrl + "Build/Build.loader.js";
@@ -38,9 +40,9 @@ const UnityViewer: React.FC<UnityViewerParams> = ({ gameName }) => {
             console.log('Unity loader script loaded successfully.');
             
             window.createUnityInstance(canvas, {
-                dataUrl: buildUrl + "Build/Build.data",
-                frameworkUrl: buildUrl + "Build/Build.framework.js",
-                codeUrl: buildUrl + "Build/Build.wasm",
+                dataUrl: buildUrl + "Build/Build.data.br",
+                frameworkUrl: buildUrl + "Build/Build.framework.js.br",
+                codeUrl: buildUrl + "Build/Build.wasm.br",
                 streamingAssetsUrl: "StreamingAssets",
                 companyName: "DefaultCompany",
                 productName: "Acerola Jam 0",
