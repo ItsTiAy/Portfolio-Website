@@ -5,58 +5,35 @@ import Footer from "@/app/components/footer";
 import ExperienceTemplate from "@/app/components/experienceTemplate";
 import ProjectTemplate from "@/app/components/projectTemplate";
 
-import { FiSettings } from "react-icons/fi";
+import { useStore } from "@/app/components/utils/store";
 
 export default function Home() {
 
+  const { animationsEnabled } = useStore();
   const [activeButton, setActiveButton] = useState(0);
-  const [accessibilityMenuOpen, setMenu] = useState(false);
 
-  const handleClick = (state: SetStateAction<number>) => {
+  const handleClick = (state: SetStateAction<number>) => 
+  {
     setActiveButton(state);
   };
 
-  const toggleMenu = () =>
-  {
-    setMenu(!accessibilityMenuOpen);
-    console.log(accessibilityMenuOpen);
-  }
-
-  //TODO: Add accessibility buttons (disable background and animations)
-
   return (
-      <div className="fixed w-full h-screen flex items-center justify-center content">
-
-        <div className="flex justify-center absolute top-0 right-0 m-3 p-2 bg-slate-800 rounded-full">
-
-          <button onClick={() => toggleMenu()} className={`z-10 duration-500 ${accessibilityMenuOpen ? 'rotate-90' : 'rotate-0'}`}><FiSettings size={24}/></button>
-          <div className={`${accessibilityMenuOpen == true ? "w-52 h-52" : "w-10 h-10"} bg-slate-800 absolute top-0 right-0 rounded-[20px] shadow-lg origin-top-right duration-500 pointer-events-none bg-clip-border overflow-hidden text-nowrap flex items-center`}>
-            <ul className={`m-3 ${accessibilityMenuOpen == true ? "opacity-100" : "opacity-0"} duration-500`}>
-              <li>
-
-              </li>
-              <li>
-
-              </li>
-            </ul>
-          </div>
-
-        </div>
-        <div className={`flex flex-col h-screen max-h-[40rem] text-center justify-center p-5 duration-500 
+      <div className="fixed w-full h-svh flex items-center justify-center content">
+        <div className={`flex flex-col h-svh max-h-[40rem] text-center justify-center p-5 ${animationsEnabled ? "duration-500" : ""} 
           ${activeButton == 1 ? "translate-x-[100vw]" : ""}
           ${activeButton == 2 ? "translate-y-[100vh]" : ""}
           ${activeButton == 3 ? "translate-x-[-100vw]" : ""}`}>
           <h1 className="text-white text-5xl md:text-6xl lg:text-7xl font-bold mb-4">Thomas Stanway</h1>
           <p className="text-white text-lg md:text-xl">Software Developer</p>
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 mt-4">
-            <button tabIndex={activeButton == 0 ? 0 : -1} className={`py-2 border-2 bg-transparent rounded-lg hover:shadow-lg transition-all duration-300`} onClick={() => handleClick(1)}>About</button>
-            <button tabIndex={activeButton == 0 ? 0 : -1} className={`py-2 border-2 bg-transparent rounded-lg hover:shadow-lg transition-all duration-300`} onClick={() => handleClick(2)}>Experience</button>
-            <button tabIndex={activeButton == 0 ? 0 : -1} className={`py-2 border-2 bg-transparent rounded-lg hover:shadow-lg transition-all duration-300`} onClick={() => handleClick(3)}>Projects</button>
+            <button tabIndex={activeButton == 0 ? 0 : -1} className={`py-2 border-2 bg-transparent rounded-lg hover:shadow-lg transition-all ${animationsEnabled ? "duration-300" : ""}`} onClick={() => handleClick(1)}>About</button>
+            <button tabIndex={activeButton == 0 ? 0 : -1} className={`py-2 border-2 bg-transparent rounded-lg hover:shadow-lg transition-all ${animationsEnabled ? "duration-300" : ""}`} onClick={() => handleClick(2)}>Experience</button>
+            <button tabIndex={activeButton == 0 ? 0 : -1} className={`py-2 border-2 bg-transparent rounded-lg hover:shadow-lg transition-all ${animationsEnabled ? "duration-300" : ""}`} onClick={() => handleClick(3)}>Projects</button>
           </div>
         <Footer button={activeButton}/>
         </div>
 
-        <div className={`flex flex-col h-screen max-h-[40rem] justify-center p-5 absolute duration-500 ${activeButton == 1 ? "" : "absolute translate-x-[-100vw]"}`}>
+        <div className={`flex flex-col h-svh max-h-[40rem] justify-center p-5 absolute ${animationsEnabled ? "duration-500" : ""} ${activeButton == 1 ? "" : "absolute translate-x-[-100vw]"}`}>
           <h1 className="text-4xl md:text-4xl lg:text-6xl font-bold">About</h1>
           <div className="my-4 overflow-y-auto snap-y max-w-3xl">
             <p className="mt-4 max-w-3xl mx-auto">
@@ -69,19 +46,19 @@ export default function Home() {
               I have extensive experience using the Unity game engine coding in C# as well as knowledge of Java, JavaScript, Python, C, C++, Coldfusion, PHP, and MySQL, along with using Github for version control. 
             </p>
             </div>
-          <button tabIndex={activeButton == 1 ? 0 : -1} className={`w-32 py-2 border-2 bg-transparent text-white rounded-lg hover:shadow-lg transition-all duration-300`} onClick={() => handleClick(0)}>Back</button>
+          <button tabIndex={activeButton == 1 ? 0 : -1} className={`w-32 py-2 border-2 bg-transparent text-white rounded-lg hover:shadow-lg transition-all ${animationsEnabled ? "duration-300" : ""}`} onClick={() => handleClick(0)}>Back</button>
         </div>
 
-        <div className={`flex flex-col h-screen max-h-[40rem] justify-center p-5 absolute duration-500 ${activeButton == 2 ? "" : "translate-y-[-100vh]"}`}>
+        <div className={`flex flex-col h-svh max-h-[40rem] justify-center p-5 absolute ${animationsEnabled ? "duration-500" : ""} ${activeButton == 2 ? "" : "translate-y-[-100vh]"}`}>
           <h1 className="text-4xl md:text-4xl lg:text-6xl font-bold">Experience</h1>
           <div className="my-4 overflow-y-auto snap-y max-w-3xl">
             <ExperienceTemplate date="July 2024 - Present" title="Software Developer Work Experience" company="Thoughtbubble" description="Web development using ColdFusion and Bootstrap. Updating existing websites and gaining knowledge and experience of current web development tools, including database connectivity and customising video player features."/>
             <ExperienceTemplate date="August - October 2023" title="Games Programmer Internship" company="Huey Games" description="Working as part of a programming team developing a new puzzle-platforming game called Mechinus. My role was to implement and improve some of the game mechanics, using design documentation and responding to feedback from senior game designers. As well as gaining more experience with the Unity games engine, I used Discord, Plastic SCM, and Google Workspace to collaborate with my colleagues."/>
           </div>
-          <button tabIndex={activeButton == 2 ? 0 : -1} className={`w-32 py-2 border-2 bg-transparent text-white rounded-lg hover:shadow-lg transition-all duration-300`} onClick={() => handleClick(0)}>Back</button>
+          <button tabIndex={activeButton == 2 ? 0 : -1} className={`w-32 py-2 border-2 bg-transparent text-white rounded-lg hover:shadow-lg transition-all ${animationsEnabled ? "duration-300" : ""}`} onClick={() => handleClick(0)}>Back</button>
         </div>
 
-        <div className={`flex flex-col h-screen max-h-[40rem] justify-center p-5 absolute duration-500 ${activeButton == 3 ? "" : "translate-x-[100vw]"}`}>
+        <div className={`flex flex-col h-svh max-h-[40rem] justify-center p-5 absolute ${animationsEnabled ? "duration-500" : ""} ${activeButton == 3 ? "" : "translate-x-[100vw]"}`}>
           <h1 className="text-4xl md:text-4xl lg:text-6xl font-bold">Projects</h1>
           <div className="my-4 overflow-y-auto snap-y max-w-3xl">
             <ProjectTemplate title="An AI-Enabled Top-Down Shooter Game" 
@@ -126,7 +103,7 @@ export default function Home() {
                             description='A game based on "Pictionary" created for an A-level project made using the Unity game engine.'
                             button={activeButton}/>
           </div>
-          <button tabIndex={activeButton == 3 ?   0 : -1} className={`w-32 py-2 border-2 bg-transparent text-white rounded-lg hover:shadow-lg transition-all duration-300`} onClick={() => handleClick(0)}>Back</button>
+          <button tabIndex={activeButton == 3 ?   0 : -1} className={`w-32 py-2 border-2 bg-transparent text-white rounded-lg hover:shadow-lg transition-all ${animationsEnabled ? "duration-300" : ""}`} onClick={() => handleClick(0)}>Back</button>
         </div>
       </div>
   );
