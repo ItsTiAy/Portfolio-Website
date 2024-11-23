@@ -23,6 +23,8 @@ const SectionContent = () => {
     []
   );
 
+  // TODO: Embed itch games, catch 404s properly, make ico file
+
   useEffect(() => {
     const currentState = pathToState[pathname] ?? 0;
     setCurrentPage(currentState);
