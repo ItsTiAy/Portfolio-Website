@@ -23,7 +23,7 @@ const SectionContent = () => {
     []
   );
 
-  // TODO: Embed itch games, catch 404s properly, make ico file
+  // TODO: 
 
   useEffect(() => {
     const currentState = pathToState[pathname] ?? 0;
@@ -89,7 +89,7 @@ const SectionContent = () => {
           <h1 className="text-4xl md:text-4xl lg:text-6xl font-bold">Projects</h1>
           <div className="my-4 overflow-y-auto snap-y max-w-3xl">
             <ProjectTemplate title="An AI-Enabled Top-Down Shooter Game" 
-                            description={`A game based on the minigame "Tanks" from Wii Play created as a final year university project made using the Unity game engine.` + currentPage}
+                            description={`A game based on the minigame "Tanks" from Wii Play created as a final year university project made using the Unity game engine.`}
                             link="/games/topdownshooter"
                             source="https://github.com/ItsTiAy/Final-Year-Project"
                             button={currentPage}/>
@@ -98,7 +98,10 @@ const SectionContent = () => {
                             description="This website crated using Next.js and Tailwind css. The website also allows you to view and play some of the game projects that I have created." 
                             source="https://github.com/ItsTiAy/Portfolio-Website"
                             button={currentPage}/>
-                
+            <ProjectTemplate title="Minesweeper C++"
+                            description="A clone of minesweeper made using Visual Studio and the Simple and Fast Multimedia Library (SFML) written in C++."
+                            source="https://github.com/ItsTiAy/Minesweeper-C-Plus-Plus"
+                            button={currentPage}/>
             <ProjectTemplate title="Recipe Storing App" 
                             description="An app created using the .NET MAUI cross-platform framework to store and view recipes. Recipes are stored locally inside a database using SQLite and can be easily viewed and searched for on the app's home page." 
                             button={currentPage}/>
