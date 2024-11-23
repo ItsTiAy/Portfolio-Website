@@ -95,13 +95,15 @@ const SectionContent = () => {
                             button={currentPage}/>
 
             <ProjectTemplate title="Portfolio Website" 
-                            description="This website crated using Next.js and Tailwind css. The website also allows you to view and play some of the game projects that I have created." 
+                            description="This website created using Next.js and Tailwind css. The website also allows you to view and play some of the game projects that I have created." 
                             source="https://github.com/ItsTiAy/Portfolio-Website"
                             button={currentPage}/>
+                            
             <ProjectTemplate title="Minesweeper C++"
                             description="A clone of minesweeper made using Visual Studio and the Simple and Fast Multimedia Library (SFML) written in C++."
                             source="https://github.com/ItsTiAy/Minesweeper-C-Plus-Plus"
                             button={currentPage}/>
+
             <ProjectTemplate title="Recipe Storing App" 
                             description="An app created using the .NET MAUI cross-platform framework to store and view recipes. Recipes are stored locally inside a database using SQLite and can be easily viewed and searched for on the app's home page." 
                             button={currentPage}/>
