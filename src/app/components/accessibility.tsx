@@ -45,12 +45,12 @@ const Accessibility: React.FC = () => {
     return (
         <div className="flex justify-center absolute top-0 right-0 m-3 p-2 z-10">
 
-            <button onClick={() => toggleMenu()} className={`z-10 duration-500 ${accessibilityMenuOpen ? 'rotate-90' : 'rotate-0'}`}>
+            <button onClick={() => toggleMenu()} className={`z-10 ${animationsEnabled ? "duration-500" : ""} ${accessibilityMenuOpen ? 'rotate-90' : 'rotate-0'}`}>
             <FiSettings size={24} />
             </button>
 
-            <div className={`${accessibilityMenuOpen ? "w-52 h-24" : "w-10 h-10 pointer-events-none "} bg-slate-800 absolute top-0 right-0 rounded-[20px] shadow-lg origin-top-right duration-500 bg-clip-border overflow-hidden`}>
-            <div className={`${accessibilityMenuOpen ? "opacity-100" : "opacity-0"} duration-500 absolute w-52 h-24 top-0 right-0 p-4 grid grid-rows-2 grid-cols-2 gap-4`}>
+            <div className={`${accessibilityMenuOpen ? "w-52 h-24" : "w-10 h-10 pointer-events-none "} bg-slate-800 absolute top-0 right-0 rounded-[20px] shadow-lg origin-top-right ${animationsEnabled ? "duration-500" : ""} bg-clip-border overflow-hidden`}>
+            <div className={`${accessibilityMenuOpen ? "opacity-100" : "opacity-0"} ${animationsEnabled ? "duration-500" : ""} absolute w-52 h-24 top-0 right-0 p-4 grid grid-rows-2 grid-cols-2 gap-4`}>
                 <div className="flex items-center">Animations</div><input tabIndex={accessibilityMenuOpen ? 0 : -1} className="w-6 accent-slate-600" type="checkbox" checked={animationsEnabled} onChange={handleAnimationsChange}/>
                 <div className="flex items-center">Background</div><input tabIndex={accessibilityMenuOpen ? 0 : -1} className="w-6 accent-slate-600" type="checkbox" checked={backgroundEnabled} onChange={handleBackgroundChange}/>
             </div>
