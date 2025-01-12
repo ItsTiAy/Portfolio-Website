@@ -78,7 +78,8 @@ const SectionContent = () => {
         <div className={`flex flex-col h-svh max-h-[40rem] justify-center p-5 absolute ${animationsEnabled ? "duration-500" : ""} ${currentPage == 2 ? "translate-y-0" : "translate-y-[-100vh]"}`}>
           <h1 className="text-4xl md:text-4xl lg:text-6xl font-bold">Experience</h1>
           <div className="my-4 overflow-y-auto snap-y max-w-3xl">
-            <ExperienceTemplate date="July 2024 - Present" title="Software Developer Work Experience" company="Thoughtbubble" description="Web development using ColdFusion and Bootstrap. Updating existing websites and gaining knowledge and experience of current web development tools, including database connectivity and customising video player features."/>
+            <ExperienceTemplate date="January 2025 - Present" title="Junior Web Developer" company="Easy Live Auction" description="Creation of white label websites using in house tools as well as HTML and CSS for styling."></ExperienceTemplate>
+            <ExperienceTemplate date="July 2024 - December 2024" title="Software Developer Work Experience" company="Thoughtbubble" description="Web development using ColdFusion and Bootstrap. Updating existing websites and gaining knowledge and experience of current web development tools, including database connectivity and customising video player features."/>
             <ExperienceTemplate date="August - October 2023" title="Games Programmer Internship" company="Huey Games" description="Working as part of a programming team developing a new puzzle-platforming game called Mechinus. My role was to implement and improve some of the game mechanics, using design documentation and responding to feedback from senior game designers. As well as gaining more experience with the Unity games engine, I used Discord, Plastic SCM, and Google Workspace to collaborate with my colleagues."/>
           </div>
           <button tabIndex={currentPage == 2 ? 0 : -1} className={`w-32 py-2 border-2 bg-transparent text-white rounded-lg hover:shadow-lg transition-all ${animationsEnabled ? "duration-300" : ""}`} onClick={() => handleClick(0)}>Back</button>
@@ -88,6 +89,10 @@ const SectionContent = () => {
         <div className={`flex flex-col h-svh max-h-[40rem] justify-center p-5 absolute ${animationsEnabled ? "duration-500" : ""} ${currentPage == 3 ? "" : "translate-x-[100vw]"}`}>
           <h1 className="text-4xl md:text-4xl lg:text-6xl font-bold">Projects</h1>
           <div className="my-4 overflow-y-auto snap-y max-w-3xl">
+            <ProjectTemplate title="Advent of Code" 
+                            description={`An advent callender of programming puzzles to be completed for each day of December up to Christmas.`}
+                            source="https://github.com/ItsTiAy/Advent-of-Code-2024"
+                            button={currentPage}/>
             <ProjectTemplate title="An AI-Enabled Top-Down Shooter Game" 
                             description={`A game based on the minigame "Tanks" from Wii Play created as a final year university project made using the Unity game engine.`}
                             link="/games/topdownshooter"
