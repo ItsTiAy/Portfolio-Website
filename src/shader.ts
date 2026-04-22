@@ -17,13 +17,8 @@ const seed = Math.random();
 
 function resizeCanvas(gl: WebGL2RenderingContext) {
   const dpr = window.devicePixelRatio || 1;
-
-  const displayWidth = canvas.clientWidth;
-  const displayHeight = canvas.clientHeight;
-
-  canvas.width = Math.floor(displayWidth * dpr);
-  canvas.height = Math.floor(displayHeight * dpr);
-
+  canvas.width = Math.floor(window.screen.width * dpr);
+  canvas.height = Math.floor(window.screen.height * dpr);
   gl.viewport(0, 0, canvas.width, canvas.height);
 }
 
