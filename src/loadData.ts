@@ -1,6 +1,6 @@
-type AboutData = {
-  data: string;
-};
+// type AboutData = {
+//   data: string;
+// };
 
 type ExperienceData = {
   id: number;
