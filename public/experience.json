@@ -1,0 +1,23 @@
+[
+  {
+    "id": 0,
+    "date": "August - October 2023",
+    "role": "Games Programmer Internship",
+    "company": "Huey Games",
+    "description": "Working as part of a programming team developing a new puzzle-platforming game called Mechinus. My role was to implement and improve some of the game mechanics, using design documentation and responding to feedback from senior game designers. As well as gaining more experience with the Unity games engine, I used Discord, Plastic SCM, and Google Workspace to collaborate with my colleagues."
+  },
+  {
+    "id": 1,
+    "date": "July 2024 - December 2024",
+    "role": "Software Developer Work Experience",
+    "company": "Thoughtbubble",
+    "description": "Web development using ColdFusion and Bootstrap. Updating existing websites and gaining knowledge and experience of current web development tools, including database connectivity and customising video player features."
+  },
+  {
+    "id": 2,
+    "date": "January 2025 - Present",
+    "role": "Junior Web Developer",
+    "company": "Easy Live Auction",
+    "description": "Creation of white label websites using in house tools as well as HTML and CSS for styling."
+  }
+]

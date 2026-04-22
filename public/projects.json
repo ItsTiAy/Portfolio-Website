@@ -1,0 +1,79 @@
+[
+  {
+    "id": 0,
+    "title": "A Networked Multiplayer Drawing Game",
+    "description": "A game based on 'Pictionary' created for an A-level project made using the Unity game engine.",
+    "playable": "",
+    "source": ""
+  },
+  {
+    "id": 1,
+    "title": "A 3D Web Application",
+    "description": "A website with 3D elements created using HTML5, CSS3, X3D (X3DOM), JavaScript, jQuery, Bootstrap, AJAX, PHP, SQLite, all configured in an MVC design pattern. Models were created using Autodesk 3ds Max and Blender. Created as coursework at university.",
+    "playable": "",
+    "source": "https://github.com/ItsTiAy/Web-3D-Applications"
+  },
+  {
+    "id": 2,
+    "title": "Vector Display Effect",
+    "description": "An effect to mimic the look of a vector monitor but allow for more complex geometry to be drawn to the screen such as 3D shapes. Made using the Unity game engine.",
+    "playable": "",
+    "source": ""
+  },
+  {
+    "id": 3,
+    "title": "Tilt Maze Plus - Acerola Jam 0",
+    "description": "A game created in 2 weeks on the theme 'Aberration' for the Acerola Jam 0 called 'Tilt Maze Plus'. Each level of the game uses the same maze layout but changes an aspect of the gameplay in unique way. This was created using the Unity game engine.",
+    "playable": "https://www.tomstanway.co.uk/games/tiltmazeplus",
+    "source": ""
+  },
+  {
+    "id": 4,
+    "title": "Lunar Launch - SpeedJam #3 Game",
+    "description": "A game created in 72 hours on the theme 'Gravity / Zero Gravity' for SpeedJam #3 called 'Lunar Launch'. Your goal is to navigate the lunar lander around the asteroids upwards to the goal as quick as possible. Created using the Unity game engine.",
+    "playable": "https://www.tomstanway.co.uk/games/lunarlaunch",
+    "source": ""
+  },
+  {
+    "id": 5,
+    "title": "Polygon Triangulation",
+    "description": "Implementation of a triangulation algorithm using a sweep line approach. This allows the algorithm to work with more complex polygons such as ones with holes. Created using the Unity game engine.",
+    "playable": "",
+    "source": ""
+  },
+  {
+    "id": 6,
+    "title": "Recipe Storing App",
+    "description": "An app created using the .NET MAUI cross-platform framework to store and view recipes. Recipes are stored locally inside a database using SQLite and can be easily viewed and searched for on the app's home page.",
+    "playable": "",
+    "source": ""
+  },
+  {
+    "id": 7,
+    "title": "Minesweeper C++",
+    "description": "A clone of minesweeper made using Visual Studio and the Simple and Fast Multimedia Library (SFML) written in C++.",
+    "playable": "",
+    "source": "https://github.com/ItsTiAy/Minesweeper-C-Plus-Plus"
+  },
+  {
+    "id": 8,
+    "title": "Portfolio Website V1",
+    "description": "This website created using Next.js and Tailwind css. The website also allows you to view and play some of the game projects that I have created.",
+    "playable": "",
+    "source": "https://github.com/ItsTiAy/Portfolio-Website"
+  },
+  {
+    "id": 9,
+    "title": "An AI-Enabled Top-Down Shooter Game",
+    "description": "A game based on the minigame 'Tanks' from Wii Play created as a final year university project made using the Unity game engine.",
+    "playable": "https://www.tomstanway.co.uk/games/topdownshooter",
+    "source": "https://github.com/ItsTiAy/Final-Year-Project"
+  },
+  {
+    "id": 10,
+    "title": "Advent of Code 2024",
+    "description": "An advent callender of programming puzzles to be completed for each day of December up to Christmas.",
+    "playable": "",
+    "source": "https://github.com/ItsTiAy/Advent-of-Code-2024"
+  }
+]

@@ -6,8 +6,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Thomas Stanway</title>
   </head>
-  <body>
-    <div id="app"></div>
+  <body id="background">
     <script type="module" src="/src/main.ts"></script>
+
+    <canvas id="canvas"></canvas>
+
+    <div class="about card-wrapper">
+      <h2>About</h2>
+      <div id="about-content" class="about-wrapper card"></div>
+    </div>
+
+    <div class="experiences card-wrapper">
+      <h2>Experience</h2>
+      <template id="experience-template">
+        <div class="experience card">
+          <h4 class="date"></h4>
+          <h3 class="role"></h3>
+          <h4 class="company"></h4>
+          <p class="description"></p>
+        </div>
+      </template>
+      <div class="experience-wrapper"></div>
+    </div>
+
+    <div class="projects card-wrapper">
+      <h2>Projects</h2>
+      <div class="project-wrapper"></div>
+      <template id="project-template">
+        <div class="project card">
+          <h3 class="title"></h3>
+          <p class="description"></p>
+          <a class="playable button" target="_blank">Play Project</a>
+          <a class="source button" target="_blank">View Source Code</a>
+        </div>
+      </template>
+    </div>
   </body>
 </html>
