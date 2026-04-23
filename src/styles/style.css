@@ -24,10 +24,12 @@ h4 {
 }
 
 canvas {
+  width: 100vw;
+  height: 100vh;
   position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: -1;
+  top: 0px;
+  left: 0px;
+  z-index: -9999;
 }
 
 .card-wrapper,
