@@ -22,16 +22,10 @@ vec2 ratio(in vec2 v, in vec2 s) {
 }
 
 void main() {
-  vec2 st = ratio(gl_FragCoord.xy / u_resolution, u_resolution) - 0.5;
-  vec2 relativeMouse = ratio(u_mouse, u_resolution);
+  vec2 relativeInput = ratio(u_mouse, u_resolution);
+  vec2 st = ratio(gl_FragCoord.xy / u_resolution, u_resolution) - relativeInput;
 
-  float mask = step(length(st), 0.5);
-
-  float angle = atan(st.y, st.x);
-
-  vec3 uvColor = 0.5 + 0.5 * cos(angle + vec3(0, 2, 4) + relativeMouse.x);
-
-  vec3 finalColour = uvColor * mask;
+  vec3 finalColour = vec3(st, 0.0);
 
   fragColour = vec4(finalColour, 1.0);
 }

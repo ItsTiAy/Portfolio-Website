@@ -2,6 +2,9 @@ import vertexSource from "./shaders/vertex.vert?raw";
 import fragmentSource from "./shaders/fragment.frag?raw";
 
 import { convertToLinear, parseRGB } from "./utils.ts";
+import { inputManager } from "./inputManager.ts";
+
+const inputCurrent = { x: 0.5, y: 0.5 };
 
 // --- DOM ---
 
@@ -24,17 +27,6 @@ function resizeCanvas(gl: WebGL2RenderingContext) {
 
 window.addEventListener("resize", () => resizeCanvas(gl));
 resizeCanvas(gl);
-
-// --- Mouse tracking ---
-
-const mouse = { x: 0, y: 0 };
-const mouseCurrent = { x: 0, y: 0 };
-
-window.addEventListener("mousemove", (e) => {
-  const rect = canvas.getBoundingClientRect();
-  mouse.x = (e.clientX - rect.left) / rect.width;
-  mouse.y = 1 - (e.clientY - rect.top) / rect.height;
-});
 
 // --- WebGl helpers ---
 
@@ -83,12 +75,6 @@ function createProgram(
 
 const program = createProgram(gl, vertexSource, fragmentSource);
 gl.useProgram(program);
-
-// --- VAO ---
-
-const vao = gl.createVertexArray();
-if (!vao) throw new Error("VAO creation failed");
-gl.bindVertexArray(vao);
 
 // --- Fullscreen triangle ---
 
@@ -155,14 +141,14 @@ function render(gl: WebGL2RenderingContext) {
   const elapsed = (now - start) * 0.001;
 
   const speed = 1 - Math.pow(0.02, delta);
-  mouseCurrent.x += (mouse.x - mouseCurrent.x) * speed;
-  mouseCurrent.y += (mouse.y - mouseCurrent.y) * speed;
+  const { x, y } = inputManager.state;
 
-  gl.bindVertexArray(vao);
+  inputCurrent.x += (x - inputCurrent.x) * speed;
+  inputCurrent.y += (y - inputCurrent.y) * speed;
 
   gl.uniform2f(uResolution, canvas.width, canvas.height);
   gl.uniform1f(uTime, elapsed);
-  gl.uniform2f(uMouse, mouseCurrent.x, mouseCurrent.y);
+  gl.uniform2f(uMouse, inputCurrent.x, inputCurrent.y);
   gl.uniform3f(
     uBackground,
     linearBackground.red,
@@ -178,8 +164,6 @@ function render(gl: WebGL2RenderingContext) {
   gl.uniform1f(uSeed, seed);
 
   gl.drawArrays(gl.TRIANGLES, 0, 3);
-
-  gl.bindVertexArray(vao);
 
   requestAnimationFrame(() => render(gl));
 }
