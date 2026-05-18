@@ -14,8 +14,6 @@ type ProjectData = {
   source: string;
 };
 
-const aboutHTML = document.getElementById("about-content") as HTMLDivElement;
-
 async function getData<T>(url: string): Promise<T> {
   const response = await fetch(url);
   if (!response.ok) throw new Error("Failed to load JSON");
@@ -26,15 +24,6 @@ function cloneTemplate(templateId: string, containerSelector: string) {
   const template = document.getElementById(templateId) as HTMLTemplateElement;
   const container = document.querySelector(containerSelector) as HTMLDivElement;
   return { template, container };
-}
-
-async function loadAbout() {
-  const data = await getData<string[]>("/about.json");
-  data.forEach((paragraph) => {
-    const p = document.createElement("p");
-    p.textContent = paragraph;
-    aboutHTML.appendChild(p);
-  });
 }
 
 async function loadExperience() {
@@ -81,7 +70,6 @@ async function loadProjects() {
 }
 
 function loadData() {
-  // loadAbout();
   loadExperience();
   loadProjects();
 }
