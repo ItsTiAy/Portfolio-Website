@@ -6,8 +6,6 @@ import { inputManager } from "./inputManager.ts";
 
 const inputCurrent = { x: 0.5, y: 0.5 };
 
-const debug = document.querySelector(".debug-values") as HTMLParagraphElement;
-
 // --- DOM ---
 
 const canvas = document.getElementById("shader") as HTMLCanvasElement;
