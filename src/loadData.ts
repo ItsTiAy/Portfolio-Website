@@ -1,7 +1,3 @@
-// type AboutData = {
-//   data: string;
-// };
-
 type ExperienceData = {
   id: number;
   date: string;
@@ -85,7 +81,7 @@ async function loadProjects() {
 }
 
 function loadData() {
-  loadAbout();
+  // loadAbout();
   loadExperience();
   loadProjects();
 }

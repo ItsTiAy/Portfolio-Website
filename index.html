@@ -7,37 +7,136 @@
     <title>Thomas Stanway</title>
   </head>
   <body id="background">
-    <canvas id="canvas"></canvas>
-
-    <div class="about card-wrapper">
-      <h2>About</h2>
-      <div id="about-content" class="about-wrapper card"></div>
+    <div class="debug">
+      <p class="debug-values"></p>
     </div>
 
-    <div class="experiences card-wrapper">
-      <h2>Experience</h2>
-      <template id="experience-template">
-        <div class="experience card">
-          <h4 class="date"></h4>
-          <h3 class="role"></h3>
-          <h4 class="company"></h4>
-          <p class="description"></p>
-        </div>
-      </template>
-      <div class="experience-wrapper"></div>
-    </div>
+    <canvas id="shader"></canvas>
 
-    <div class="projects card-wrapper">
-      <h2>Projects</h2>
-      <div class="project-wrapper"></div>
-      <template id="project-template">
-        <div class="project card">
-          <h3 class="title"></h3>
-          <p class="description"></p>
-          <a class="playable button" target="_blank">Play Project</a>
-          <a class="source button" target="_blank">View Source Code</a>
+    <div class="hero"></div>
+
+    <div class="content-wrapper-outer">
+      <div class="content-wrapper-inner">
+        <div class="about card-wrapper">
+          <h2>About</h2>
+          <div id="about-content" class="about-wrapper card">
+            <p>
+              I am a graduate from the University of Sussex with a first class
+              degree in Computer Science.
+            </p>
+            <p>
+              I am a technically skilled, creative, and diligent individual and
+              I have the ability to learn new technical skills quickly and
+              effectively. I can think analytically and logically and enjoy
+              solving problems.
+            </p>
+            <p>
+              "I have extensive experience using the Unity game engine coding in
+              C# as well as knowledge of Java, JavaScript, Python, C, C++,
+              Coldfusion, PHP, and MySQL, along with using Github for version
+              control.",
+            </p>
+          </div>
         </div>
-      </template>
+        <div class="keywords card">
+          <h3>Programming languages</h3>
+          <ul>
+            <li style="--color-hover: #fff; --bg-hover: #004482">
+              <span><i class="devicon-cplusplus-plain"></i>C++</span>
+            </li>
+            <li style="--color-hover: #fff; --bg-hover: #68217a">
+              <span><i class="devicon-csharp-plain"></i>C#</span>
+            </li>
+            <li style="--color-hover: #fff; --bg-hover: #001d57">
+              <span><i class="icon-coldfusion-plain"></i>ColdFusion</span>
+            </li>
+            <li style="--color-hover: #222; --bg-hover: #478cbf">
+              <span><i class="devicon-godot-plain"></i>GDScript</span>
+            </li>
+            <li style="--color-hover: #222; --bg-hover: #ea2d2e">
+              <span><i class="devicon-java-plain"></i>Java</span>
+            </li>
+            <li style="--color-hover: #222; --bg-hover: #f0db4f">
+              <span><i class="devicon-javascript-plain"></i>JavaScript</span>
+            </li>
+            <li style="--color-hover: #222; --bg-hover: #007acc">
+              <span><i class="devicon-typescript-plain"></i>TypeScript</span>
+            </li>
+            <li style="--color-hover: #fff; --bg-hover: #00618a">
+              <span><i class="devicon-mysql-plain"></i>MySQL</span>
+            </li>
+            <li style="--color-hover: #222; --bg-hover: #777bb3">
+              <span><i class="devicon-php-plain"></i>PHP</span>
+            </li>
+            <li style="--color-hover: #222; --bg-hover: #ffd845">
+              <span><i class="devicon-python-plain"></i>Python</span>
+            </li>
+          </ul>
+          <h3>Tools and Software</h3>
+          <ul>
+            <li style="--color-hover: #fff; --bg-hover: #205081">
+              <span><i class="devicon-bitbucket-plain"></i>Bitbucket</span>
+            </li>
+            <li style="--color-hover: #fff; --bg-hover: #136be6">
+              <span><i class="devicon-confluence-plain"></i>Confluence</span>
+            </li>
+            <li style="--color-hover: #222; --bg-hover: #2684ff">
+              <span><i class="devicon-jira-plain"></i>Jira</span>
+            </li>
+            <li style="--color-hover: #222; --bg-hover: #f24e1e">
+              <span><i class="devicon-figma-plain"></i>Figma</span>
+            </li>
+            <li style="--color-hover: #fff; --bg-hover: #181616">
+              <span><i class="devicon-github-plain"></i>Github</span>
+            </li>
+          </ul>
+
+          <h3>Web technologies</h3>
+          <ul>
+            <li style="--color-hover: #fff; --bg-hover: #2d3441">
+              <span><i class="devicon-alpinejs-original"></i>AlpineJS</span>
+            </li>
+            <li style="--color-hover: #fff; --bg-hover: #712cf9">
+              <span><i class="devicon-bootstrap-plain"></i>Bootstrap</span>
+            </li>
+            <li style="--color-hover: #fff; --bg-hover: #3d8fc6">
+              <span><i class="devicon-css3-plain"></i>CSS</span>
+            </li>
+            <li style="--color-hover: #fff; --bg-hover: #e54d26">
+              <span><i class="devicon-html5-plain"></i>HTML</span>
+            </li>
+            <li style="--color-hover: #222; --bg-hover: #38bdf8">
+              <span><i class="devicon-tailwindcss-plain"></i>Tailwind CSS</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="experiences card-wrapper">
+          <h2>Experience</h2>
+          <template id="experience-template">
+            <div class="experience card">
+              <h5 class="date"></h5>
+              <h3 class="role"></h3>
+              <h4 class="company"></h4>
+              <p class="description"></p>
+            </div>
+          </template>
+          <div class="experience-wrapper"></div>
+        </div>
+
+        <div class="projects card-wrapper">
+          <h2>Projects</h2>
+          <div class="project-wrapper"></div>
+          <template id="project-template">
+            <div class="project card">
+              <h3 class="title"></h3>
+              <p class="description"></p>
+              <a class="playable button" target="_blank">Play Project</a>
+              <a class="source button" target="_blank">View Source Code</a>
+            </div>
+          </template>
+        </div>
+      </div>
     </div>
 
     <script type="module" src="/src/main.ts"></script>

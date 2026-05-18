@@ -6,9 +6,11 @@ import { inputManager } from "./inputManager.ts";
 
 const inputCurrent = { x: 0.5, y: 0.5 };
 
+const debug = document.querySelector(".debug-values") as HTMLParagraphElement;
+
 // --- DOM ---
 
-const canvas = document.getElementById("canvas") as HTMLCanvasElement;
+const canvas = document.getElementById("shader") as HTMLCanvasElement;
 const background = document.getElementById("background") as HTMLBodyElement;
 
 const gl = canvas.getContext("webgl2");
@@ -145,6 +147,8 @@ function render(gl: WebGL2RenderingContext) {
 
   inputCurrent.x += (x - inputCurrent.x) * speed;
   inputCurrent.y += (y - inputCurrent.y) * speed;
+
+  // debug.innerText = JSON.stringify(inputCurrent, null, "\t");
 
   gl.uniform2f(uResolution, canvas.width, canvas.height);
   gl.uniform1f(uTime, elapsed);
