@@ -18,6 +18,6 @@
     "date": "January 2025 - Present",
     "role": "Junior Web Developer",
     "company": "Easy Live Auction",
-    "description": "Design and creation of websites using Figma and in-house tools as well as HTML and CSS for styling. Updating testing documents for the full sites and subdomain sites in Confluence to include often missed parts. These updates also included a restructure of the document so that testing can be done on a page by page basis, improving the efficiency of working through it. Updated the Figma base document and creation of documentation for it. This made components more modular and implemented the use of properties and variables, making it quicker to get a site mock-up made as well as making each site more consistent with relation to sizing and spacing. Reworked the site's CSS template to fix any issues that were evident before and added more variables to make modifying components easier. Working on bug, improvements, and feature tickets."
+    "description": "Design of websites using Figma, including updates to the Figma template used. Creation of websites using ColdFusion, HTML, CSS, and JavaScript. Working on bugs, improvements, and new features."
   }
 ]

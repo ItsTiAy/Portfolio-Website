@@ -1,17 +1,21 @@
-function srgbToLinear(channel: number): number {
-  const c = channel / 255;
-  return c <= 0.04045 ? c / 12.92 : Math.pow((c + 0.055) / 1.055, 2.4);
+function srgbToLinear(srgb: number[]): [number, number, number] {
+  const linear: [number, number, number] = [0, 0, 0];
+
+  for (let i = 0; i < 3; i++) {
+    const c = srgb[i] / 255.0;
+
+    if (c <= 0.04045) {
+      linear[i] = c * 0.0773993808;
+    } else {
+      linear[i] = Math.pow(c * 0.9478672986 + 0.0521327014, 2.4);
+    }
+  }
+
+  return linear;
 }
 
-export function convertToLinear(r: number, g: number, b: number) {
-  return {
-    red: srgbToLinear(r),
-    green: srgbToLinear(g),
-    blue: srgbToLinear(b),
-  };
-}
-
-export function parseRGB(cssColor: string): [number, number, number] {
-  const [r, g, b] = cssColor.match(/\d+/g)!.map(Number);
-  return [r, g, b];
+export function getComputedColourStyle(colour: string) {
+  const rgb = colour.match(/\d+/g)!.map(Number);
+  const linear = srgbToLinear(rgb);
+  return linear;
 }

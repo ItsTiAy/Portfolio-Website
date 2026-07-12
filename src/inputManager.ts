@@ -36,11 +36,17 @@ function invertQuat(q: { x: number; y: number; z: number; w: number }) {
 
 export class InputManager {
   public state: InputState = { x: 0.5, y: 0.5 };
+  public isDesktop = window.matchMedia("(pointer: fine)").matches;
   private referenceQuat: { x: number; y: number; z: number; w: number } | null =
     null;
-  public isDesktop = window.matchMedia("(pointer: fine)").matches;
+  private target: InputState = { x: 0.5, y: 0.5 };
+  private smoothing: number;
 
-  constructor() {
+  private static readonly REFERENCE_DT = 1 / 60;
+
+  constructor(smoothing = 0.1) {
+    this.smoothing = Math.max(0, Math.min(0.999, smoothing));
+
     if (this.isDesktop) {
       window.addEventListener("mousemove", (e) => this.handleMouseMove(e));
     } else {
@@ -50,9 +56,30 @@ export class InputManager {
     }
   }
 
+  public update(dt: number) {
+    if (this.smoothing <= 0) {
+      this.state.x = this.target.x;
+      this.state.y = this.target.y;
+      return;
+    }
+
+    const framesElapsed = dt / InputManager.REFERENCE_DT;
+    const alpha = 1 - Math.pow(1 - this.smoothing, framesElapsed);
+
+    this.state.x += (this.target.x - this.state.x) * alpha;
+    this.state.y += (this.target.y - this.state.y) * alpha;
+  }
+
+  private setTarget(x: number, y: number) {
+    this.target.x = x;
+    this.target.y = y;
+  }
+
   private handleMouseMove(e: MouseEvent) {
-    this.state.x = e.clientX / window.innerWidth;
-    this.state.y = 1 - e.clientY / window.innerHeight;
+    const x = e.clientX / window.innerWidth;
+    const y = 1 - e.clientY / window.innerHeight;
+
+    this.setTarget(x, y);
   }
 
   private handleOrientation(e: DeviceOrientationEvent) {
@@ -66,25 +93,14 @@ export class InputManager {
     }
 
     const delta = multiplyQuat(this.referenceQuat, current);
-
     const tiltX = 2 * (delta.x * delta.z + delta.w * delta.y);
     const tiltY = 2 * (delta.y * delta.z - delta.w * delta.x);
-
     const maxTilt = Math.sin((MAX_TILT * Math.PI) / 180);
+    const x = Math.max(0, Math.min(1, (tiltX / maxTilt + 1) / 2));
+    const y = Math.max(0, Math.min(1, (tiltY / maxTilt + 1) / 2));
 
-    this.state.x = Math.max(0, Math.min(1, (tiltX / maxTilt + 1) / 2));
-    this.state.y = Math.max(0, Math.min(1, (tiltY / maxTilt + 1) / 2));
+    this.setTarget(x, y);
   }
-
-  // public async requestAccess(): Promise<boolean> {
-  //   if (this.isDesktop) return true;
-  //   const devOrient = DeviceOrientationEvent as any;
-  //   if (typeof devOrient.requestPermission === "function") {
-  //     const status = await devOrient.requestPermission();
-  //     return status === "granted";
-  //   }
-  //   return true;
-  // }
 }
 
 export const inputManager = new InputManager();

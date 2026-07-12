@@ -1,0 +1,25 @@
+.stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--stack-gap, 1rem);
+}
+
+.row {
+  display: flex;
+  gap: var(--row-gap, 1rem);
+  align-items: center;
+}
+
+.prose > * + * {
+  margin-block-start: var(--prose-flow, 1em);
+}
+
+.pile {
+  display: grid;
+  grid-template-areas: "pile";
+  place-items: center;
+
+  > * {
+    grid-area: pile;
+  }
+}

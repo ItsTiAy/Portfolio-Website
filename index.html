@@ -6,40 +6,57 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Thomas Stanway</title>
   </head>
-  <body id="background">
+  <body id="background" class="preload">
     <div class="debug">
       <p class="debug-values"></p>
     </div>
 
     <canvas id="shader"></canvas>
 
-    <div class="hero"></div>
-
-    <div class="content-wrapper-outer">
-      <div class="content-wrapper-inner">
-        <div class="about card-wrapper">
-          <h2>About</h2>
-          <div id="about-content" class="about-wrapper card">
-            <p>
-              I am a graduate from the University of Sussex with a first class
-              degree in Computer Science.
-            </p>
-            <p>
-              I am a technically skilled, creative, and diligent individual and
-              I have the ability to learn new technical skills quickly and
-              effectively. I can think analytically and logically and enjoy
-              solving problems.
-            </p>
-            <p>
-              "I have extensive experience using the Unity game engine coding in
-              C# as well as knowledge of Java, JavaScript, Python, C, C++,
-              Coldfusion, PHP, and MySQL, along with using Github for version
-              control.",
-            </p>
-          </div>
+    <header class="row">
+      <div class="header-left row">
+        <p class="background-colour"></p>
+      </div>
+      <div class="header-right row">
+        <div class="social row">
+          <a href="https://github.com/ItsTiAy"><i data-feather="github"></i></a>
+          <a href="https://www.linkedin.com/in/thomas-stanway"
+            ><i data-feather="linkedin"></i
+          ></a>
         </div>
-        <div class="keywords card">
-          <h3>Programming languages</h3>
+      </div>
+    </header>
+
+    <div class="hero">
+      <span class="hero-caption">Web Developer & Designer</span>
+      <div class="hero-text"></div>
+    </div>
+
+    <div class="content-wrapper prose">
+      <section class="about card-wrapper stack">
+        <h2>About</h2>
+        <div id="about-content" class="about-wrapper card">
+          <p>
+            I am a graduate from the University of Sussex with a first class
+            degree in Computer Science.
+          </p>
+          <p>
+            I am a technically skilled, creative, and diligent individual and I
+            have the ability to learn new technical skills quickly and
+            effectively. I can think analytically and logically and enjoy
+            solving problems.
+          </p>
+          <p>
+            "I have extensive experience using the Unity game engine coding in
+            C# as well as knowledge of Java, JavaScript, Python, C, C++,
+            Coldfusion, PHP, and MySQL, along with using Github for version
+            control.",
+          </p>
+        </div>
+      </section>
+      <section class="keywords card-wrapper stack">
+        <h3>Programming languages</h3>
+        <div class="card">
           <ul>
             <li style="--color-hover: #fff; --bg-hover: #004482">
               <span><i class="devicon-cplusplus-plain"></i>C++</span>
@@ -72,7 +89,9 @@
               <span><i class="devicon-python-plain"></i>Python</span>
             </li>
           </ul>
-          <h3>Tools and Software</h3>
+        </div>
+        <h3>Tools and Software</h3>
+        <div class="card">
           <ul>
             <li style="--color-hover: #fff; --bg-hover: #205081">
               <span><i class="devicon-bitbucket-plain"></i>Bitbucket</span>
@@ -90,8 +109,10 @@
               <span><i class="devicon-github-plain"></i>Github</span>
             </li>
           </ul>
+        </div>
 
-          <h3>Web technologies</h3>
+        <h3>Web technologies</h3>
+        <div class="card">
           <ul>
             <li style="--color-hover: #fff; --bg-hover: #2d3441">
               <span><i class="devicon-alpinejs-original"></i>AlpineJS</span>
@@ -110,35 +131,42 @@
             </li>
           </ul>
         </div>
+      </section>
 
-        <div class="experiences card-wrapper">
-          <h2>Experience</h2>
-          <template id="experience-template">
-            <div class="experience card">
-              <h5 class="date"></h5>
-              <h3 class="role"></h3>
-              <h4 class="company"></h4>
-              <p class="description"></p>
-            </div>
-          </template>
-          <div class="experience-wrapper"></div>
-        </div>
+      <section class="experiences card-wrapper stack">
+        <h2>Experience</h2>
+        <template id="experience-template">
+          <div class="experience card">
+            <h5 class="date"></h5>
+            <h3 class="role"></h3>
+            <h4 class="company"></h4>
+            <p class="description"></p>
+          </div>
+        </template>
+        <div class="experience-wrapper"></div>
+      </section>
 
-        <div class="projects card-wrapper">
-          <h2>Projects</h2>
-          <div class="project-wrapper"></div>
-          <template id="project-template">
-            <div class="project card">
-              <h3 class="title"></h3>
-              <p class="description"></p>
-              <a class="playable button" target="_blank">Play Project</a>
-              <a class="source button" target="_blank">View Source Code</a>
-            </div>
-          </template>
-        </div>
-      </div>
+      <section class="projects card-wrapper stack">
+        <h2>Projects</h2>
+        <div class="project-wrapper"></div>
+        <template id="project-template">
+          <div class="project card">
+            <h3 class="title"></h3>
+            <p class="description"></p>
+            <a class="playable button" target="_blank">Play Project</a>
+            <a class="source button" target="_blank">View Source Code</a>
+          </div>
+        </template>
+      </section>
     </div>
 
     <script type="module" src="/src/main.ts"></script>
   </body>
+
+  <footer>
+    <p class="copyright">
+      &copy; <span id="copyright-year"></span> Thomas Stanway. All Rights
+      Reserved.
+    </p>
+  </footer>
 </html>

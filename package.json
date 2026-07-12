@@ -9,11 +9,17 @@
     "preview": "vite preview"
   },
   "devDependencies": {
+    "stylelint-config-recess-order": "^7.7.0",
+    "stylelint-config-standard": "^40.0.0",
+    "stylelint-order": "^8.1.1",
     "typescript": "~6.0.2",
     "vite": "^8.0.9"
   },
   "dependencies": {
+    "@types/feather-icons": "^4.29.4",
     "devicon": "^2.17.0",
-    "tegaki": "^0.15.0"
+    "feather-icons": "^4.29.2",
+    "tegaki": "^0.18.0",
+    "twgl.js": "^7.0.0"
   }
 }
