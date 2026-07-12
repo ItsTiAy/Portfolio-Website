@@ -44,7 +44,7 @@ import fs from "./shaders/fragment.frag?raw";
 
 const canvas = document.querySelector("#shader") as HTMLCanvasElement;
 const background = document.querySelector("#background") as HTMLBodyElement;
-const gl = canvas.getContext("webgl2");
+const gl = canvas.getContext("webgl2") as WebGL2RenderingContext;
 
 if (!gl) throw new Error("WebGL2 not supported");
 
