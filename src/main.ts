@@ -12,7 +12,11 @@ import "./custom_icons.css";
 import "./loadData.ts";
 import "devicon/devicon.min.css";
 import "./animate.ts";
-// import "./debug.ts";
+
+let theme: {
+  background: [number, number, number];
+  foreground: [number, number, number];
+};
 
 // --- Set copyright date
 
@@ -25,16 +29,37 @@ if (dateElement) dateElement.textContent = new Date().getFullYear().toString();
 const backgroundColour = document.querySelector(
   ".background-colour",
 ) as HTMLParagraphElement;
+
 const darkModeQuery = window.matchMedia("(prefers-color-scheme: dark)");
 
-function updateText(isDark: boolean) {
+function updateColours(isDark: boolean) {
   backgroundColour.textContent = isDark
     ? "No. 88 - Sapphire - #293f76"
-    : "No. 1 - White";
+    : "No. 1 - White - #e8dcba";
+
+  theme = updateTheme();
 }
 
-updateText(darkModeQuery.matches);
-darkModeQuery.addEventListener("change", (e) => updateText(e.matches));
+darkModeQuery.addEventListener("change", (e) => updateColours(e.matches));
+
+const backgroundColourContainer = document.querySelector(
+  ".header-left",
+) as HTMLDivElement;
+
+const backgroundColourTooltip = document.querySelector(
+  ".header-left .tooltiptext",
+) as HTMLDivElement;
+
+backgroundColourContainer.addEventListener("click", function () {
+  let current = darkModeQuery.matches ? "#293f76" : "#e8dcba";
+
+  navigator.clipboard.writeText(current);
+  backgroundColourTooltip.style.opacity = "1";
+
+  setTimeout(function () {
+    backgroundColourTooltip.style.opacity = "0";
+  }, 1000);
+});
 
 // --- Setup background shader
 
@@ -55,14 +80,7 @@ const arrays = {
 
 const bufferInfo = twgl.createBufferInfoFromArrays(gl, arrays);
 
-let theme = {
-  background: getComputedColourStyle(
-    getComputedStyle(background).getPropertyValue("background-color"),
-  ),
-  foreground: getComputedColourStyle(
-    getComputedStyle(canvas).getPropertyValue("background-color"),
-  ),
-};
+updateColours(darkModeQuery.matches);
 
 function getVerticalScrollRatio() {
   const scrollTop = window.scrollY || document.documentElement.scrollTop;
@@ -75,6 +93,17 @@ function getVerticalScrollRatio() {
   return scrollTop / maxScrollTop;
 }
 
+function updateTheme() {
+  return {
+    background: getComputedColourStyle(
+      getComputedStyle(background).getPropertyValue("background-color"),
+    ),
+    foreground: getComputedColourStyle(
+      getComputedStyle(canvas).getPropertyValue("background-color"),
+    ),
+  };
+}
+
 let lastTime: number | null = null;
 
 function render(time: number) {
@@ -85,8 +114,12 @@ function render(time: number) {
 
   lastTime = time;
 
-  twgl.resizeCanvasToDisplaySize(canvas);
-  gl.viewport(0, 0, gl.canvas.width, gl.canvas.height);
+  const dpr = Math.min(window.devicePixelRatio || 1, 2);
+  const resized = twgl.resizeCanvasToDisplaySize(canvas, dpr);
+
+  if (resized) {
+    gl.viewport(0, 0, gl.canvas.width, gl.canvas.height);
+  }
 
   const uniforms = {
     u_time: time * 0.001,
@@ -110,16 +143,3 @@ requestAnimationFrame(render);
 window.addEventListener("load", () => {
   background.classList.remove("preload");
 });
-
-/*
-window.addEventListener("DOMContentLoaded", () => {
-  const elements = document.querySelectorAll(".card");
-  elements.forEach((element: HTMLDivElement) => {
-    const originalWidth = element.offsetWidth;
-    const newWidth = originalWidth + 190;
-    const scaleFactor = newWidth / originalWidth;
-
-    element.style.setProperty("--scale-factor", scaleFactor.toString());
-  });
-});
-*/
