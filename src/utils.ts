@@ -1,8 +1,9 @@
-function srgbToLinear(srgb: number[]): [number, number, number] {
-  const linear: [number, number, number] = [0, 0, 0];
+export function getComputedColourStyle(colour: string) {
+  const rgb = colour.match(/\d+/g)!.map(Number);
+  const linear = [0, 0, 0];
 
   for (let i = 0; i < 3; i++) {
-    const c = srgb[i] / 255.0;
+    const c = rgb[i] / 255.0;
 
     if (c <= 0.04045) {
       linear[i] = c * 0.0773993808;
@@ -11,11 +12,5 @@ function srgbToLinear(srgb: number[]): [number, number, number] {
     }
   }
 
-  return linear;
-}
-
-export function getComputedColourStyle(colour: string) {
-  const rgb = colour.match(/\d+/g)!.map(Number);
-  const linear = srgbToLinear(rgb);
   return linear;
 }

@@ -11,35 +11,40 @@
     "title": "A 3D Web Application",
     "description": "A website with 3D elements created using HTML5, CSS3, X3D (X3DOM), JavaScript, jQuery, Bootstrap, AJAX, PHP, SQLite, all configured in an MVC design pattern. Models were created using Autodesk 3ds Max and Blender. Created as coursework at university.",
     "playable": "",
-    "source": "https://github.com/ItsTiAy/Web-3D-Applications"
+    "source": "https://github.com/ItsTiAy/Web-3D-Applications",
+    "imgSource": "/images/3d_web.png"
   },
   {
     "id": 2,
     "title": "Vector Display Effect",
     "description": "An effect to mimic the look of a vector monitor but allow for more complex geometry to be drawn to the screen such as 3D shapes. Made using the Unity game engine.",
     "playable": "",
-    "source": ""
+    "source": "",
+    "imgSource": "/images/vector_display.png"
   },
   {
     "id": 3,
     "title": "Tilt Maze Plus - Acerola Jam 0",
     "description": "A game created in 2 weeks on the theme 'Aberration' for the Acerola Jam 0 called 'Tilt Maze Plus'. Each level of the game uses the same maze layout but changes an aspect of the gameplay in unique way. This was created using the Unity game engine.",
-    "playable": "https://www.tomstanway.co.uk/games/tiltmazeplus",
-    "source": ""
+    "playable": "https://tiay.itch.io/tilt-maze-plus",
+    "source": "",
+    "imgSource": "/images/tilt_maze_plus.png"
   },
   {
     "id": 4,
     "title": "Lunar Launch - SpeedJam #3 Game",
     "description": "A game created in 72 hours on the theme 'Gravity / Zero Gravity' for SpeedJam #3 called 'Lunar Launch'. Your goal is to navigate the lunar lander around the asteroids upwards to the goal as quick as possible. Created using the Unity game engine.",
-    "playable": "https://www.tomstanway.co.uk/games/lunarlaunch",
-    "source": ""
+    "playable": "https://tiay.itch.io/lunar-launch",
+    "source": "",
+    "imgSource": "/images/lunar_launch.png"
   },
   {
     "id": 5,
     "title": "Polygon Triangulation",
     "description": "Implementation of a triangulation algorithm using a sweep line approach. This allows the algorithm to work with more complex polygons such as ones with holes. Created using the Unity game engine.",
     "playable": "",
-    "source": ""
+    "source": "",
+    "imgSource": "/images/polygon_triangulation.png"
   },
   {
     "id": 6,
@@ -53,12 +58,13 @@
     "title": "Minesweeper C++",
     "description": "A clone of minesweeper made using Visual Studio and the Simple and Fast Multimedia Library (SFML) written in C++.",
     "playable": "",
-    "source": "https://github.com/ItsTiAy/Minesweeper-C-Plus-Plus"
+    "source": "https://github.com/ItsTiAy/Minesweeper-C-Plus-Plus",
+    "imgSource": "/images/minesweeper_c_plus_plus.png"
   },
   {
     "id": 8,
     "title": "Portfolio Website V1",
-    "description": "This website created using Next.js and Tailwind css. The website also allows you to view and play some of the game projects that I have created.",
+    "description": "The original version of this website. Created using Next.js and Tailwind css. The website also allows you to view and play some of the game projects that I have created.",
     "playable": "",
     "source": "https://github.com/ItsTiAy/Portfolio-Website"
   },
@@ -73,28 +79,39 @@
     "id": 10,
     "title": "An AI-Enabled Top-Down Shooter Game",
     "description": "A game based on the minigame 'Tanks' from Wii Play created as a final year university project made using the Unity game engine.",
-    "playable": "https://www.tomstanway.co.uk/games/topdownshooter",
-    "source": "https://github.com/ItsTiAy/Final-Year-Project"
+    "playable": "https://tiay.itch.io/ai-enabled-top-down-shooter",
+    "source": "https://github.com/ItsTiAy/Final-Year-Project",
+    "imgSource": "/images/top_down_shooter.png"
   },
   {
     "id": 11,
     "title": "Advent of Code 2024",
     "description": "An advent callender of programming puzzles to be completed for each day of December up to Christmas. Written in ColdFusion Lucee.",
     "playable": "",
-    "source": "https://github.com/ItsTiAy/Advent-of-Code-2024"
+    "source": "https://github.com/ItsTiAy/Advent-of-Code-2024",
+    "imgSource": "/images/advent_of_code.png"
   },
   {
     "id": 12,
     "title": "Advent of Code 2025",
     "description": "An advent callender of programming puzzles to be completed for each day of December up to Christmas. Written in F#.",
     "playable": "",
-    "source": "https://github.com/ItsTiAy/Advent-of-Code-2025"
+    "source": "https://github.com/ItsTiAy/Advent-of-Code-2025",
+    "imgSource": "/images/advent_of_code.png"
   },
   {
     "id": 13,
     "title": "Portfolio Website V2",
-    "description": "This very site right now",
+    "description": "This very site right now.",
     "playable": "",
     "source": ""
+  },
+  {
+    "id": 14,
+    "title": "Rave Robber - GMTK Game Jam 2026",
+    "description": "A game created in 4 days on the theme 'Countdown' for the GMTK Game Jam 2026 called 'Rave Robber'.",
+    "playable": "https://tiay.itch.io/rave-robber",
+    "source": "",
+    "imgSource": "/images/rave_robber.png"
   }
 ]

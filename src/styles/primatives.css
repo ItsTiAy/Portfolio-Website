@@ -6,6 +6,7 @@
 
 .row {
   display: flex;
+  flex-direction: row;
   gap: var(--row-gap, 1rem);
   align-items: center;
 }

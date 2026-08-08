@@ -12,9 +12,11 @@
   --primary: light-dark(var(--white), var(--sapphire));
   --secondary: light-dark(var(--maize), #75a7b9);
   --text: light-dark(#222, #fff);
-  --text-30: color-mix(in srgb, var(--text) 30%);
-  --text-25: color-mix(in srgb, var(--text) 25%);
+  --text-00: color-mix(in srgb, var(--text) 0.0001%);
+  --text-05: color-mix(in srgb, var(--text) 5%);
   --text-10: color-mix(in srgb, var(--text) 10%);
+  --text-25: color-mix(in srgb, var(--text) 25%);
+  --text-30: color-mix(in srgb, var(--text) 30%);
 
   /* --card-bg: light-dark(rgb(255 255 255 / 50%), rgb(0 0 0 / 50%)); */
   --card-bg: var(--primary);
@@ -28,6 +30,8 @@
     --icon-invert: 1;
   }
 }
+
+/* - Tag Styles - */
 
 html {
   font-size: 16px;
@@ -71,17 +75,6 @@ h5 {
   font-size: 1rem;
 }
 
-#shader {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: -9999;
-  display: block;
-  width: 100vw;
-  height: 100vh;
-  background-color: var(--secondary);
-}
-
 header {
   --row-gap: 0.5rem;
 
@@ -95,8 +88,6 @@ header {
 
   .background-colour {
     font-size: 0.75rem;
-
-    /* opacity: 0.25; */
   }
 
   &.show {
@@ -104,18 +95,28 @@ header {
   }
 }
 
+iconify-icon {
+  font-size: 1.5rem;
+}
+
 .header-left {
-  padding-block: 0.25rem;
-  padding-inline: 0.5rem;
   cursor: pointer;
-  background-color: var(--text-25);
-  border: 1px solid var(--text-25);
-  border-radius: 100vw;
   transition: background-color 200ms ease-in-out;
 
   &:hover {
-    background-color: var(--text-30);
+    background-color: var(--text-25);
   }
+}
+
+#shader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -9999;
+  display: block;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--secondary);
 }
 
 .hero {
@@ -146,70 +147,70 @@ header {
   }
 }
 
-@media (width >= 768px) {
-  html {
-    font-size: 20px;
-  }
-
-  .hero {
-    width: max-content;
-
-    .hero-text {
-      font-size: 10.5vw;
-    }
-
-    .hero-caption {
-      font-size: 2vw;
-    }
-  }
-}
-
 .card {
   display: flex;
   flex-direction: column;
   gap: 0.25rem;
-  padding: 0.5rem;
+  padding: 1rem;
+  background-color: var(--text-05);
+  border: 1px solid var(--text-10);
+  border-radius: 0.5rem;
+  transition-timing-function: ease-in-out;
+  transition-duration: 200ms;
+  transition-property: background-color;
 
-  /* background-color: var(--card-bg); */
+  &:hover {
+    background-color: var(--text-10);
+  }
+}
+
+.badge {
+  width: fit-content;
+  padding-block: 0.25rem;
+  padding-inline: 0.5rem;
+  background-color: var(--text-10);
+  border: 1px solid var(--text-10);
+  border-radius: 100vw;
+}
+
+.button {
+  padding: 0.5rem;
+  text-decoration: none;
+  background-color: var(--text-10);
+  border: 1px solid var(--text-10);
+  border-radius: 0.25rem;
   transition-timing-function: ease-in-out;
   transition-duration: 100ms;
 
   &:hover {
-    /* transform: scale(var(--scale-factor, 1.025)); */
+    background-color: var(--text-25);
   }
 }
 
-.keywords {
+.keywords-wrapper {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0;
+  align-items: center;
+
   ul {
     display: flex;
     flex-wrap: wrap;
     gap: 1rem;
+    justify-content: center;
     list-style: none;
+
+    + ul {
+      padding-block-start: 0.5rem;
+      margin-block-start: 0.5rem;
+      border-block-start: 1px solid var(--text-10);
+    }
   }
 
-  li {
+  span {
     display: flex;
     gap: 0.5rem;
     align-items: center;
-    justify-content: center;
-    padding: 0.5rem;
-    font-size: 1.25rem;
-    cursor: pointer;
-    border: 2px solid;
-    border-radius: 0.5rem;
-    transition: 0.25s ease-in-out;
-
-    span {
-      display: flex;
-      gap: 0.5rem;
-      align-items: center;
-    }
-
-    &:hover {
-      color: var(--color-hover);
-      background-color: var(--bg-hover);
-      border-color: transparent;
-    }
   }
 }
 
@@ -225,7 +226,7 @@ header {
   max-width: 100ch;
   padding: 1rem;
   margin-inline: auto;
-  background-color: var(--primary);
+  border-radius: 1rem;
 }
 
 .experience-wrapper {
@@ -239,15 +240,42 @@ header {
 }
 
 .project-wrapper {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(min(40ch, 100%), 1fr));
-  grid-auto-rows: 1fr;
-  gap: 0.5rem;
+  columns: 1 auto;
+  column-gap: 0.5rem;
+
+  > div + div {
+    margin-top: 0.5rem;
+  }
 }
 
 .project {
+  --prose-flow: 0.5em;
+
+  position: relative;
+  overflow: hidden;
+  background-image: none;
+  break-inside: avoid;
+
   .description {
     margin-block-end: auto;
+  }
+
+  .background-img {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    object-fit: cover;
+    opacity: 0;
+    transition-timing-function: inherit;
+    transition-duration: inherit;
+    transition-property: opacity;
+  }
+
+  &:hover .background-img {
+    opacity: 0.2;
   }
 }
 
@@ -262,18 +290,7 @@ footer {
     margin: auto;
     font-size: 0.75rem;
     text-align: center;
-    opacity: 0.5;
   }
-}
-
-.debug {
-  position: fixed;
-  top: 0;
-  right: 0;
-  display: none;
-  width: 50%;
-  font-size: 3vw;
-  background: rgb(0 0 0 / 50%);
 }
 
 .tooltip {
@@ -285,6 +302,7 @@ footer {
   top: 150%;
   left: 50%;
   z-index: 1;
+  visibility: hidden;
   width: 120px;
   padding: 5px 0;
   margin-left: -60px;
@@ -306,4 +324,50 @@ footer {
   border-color: transparent transparent var(--text-10);
   border-style: solid;
   border-width: 5px;
+}
+
+@media (width >= 768px) {
+  html {
+    font-size: 20px;
+  }
+
+  .hero {
+    width: max-content;
+
+    .hero-text {
+      font-size: 10.5vw;
+    }
+
+    .hero-caption {
+      font-size: 2vw;
+    }
+  }
+
+  .keywords-wrapper {
+    grid-template-rows: 1fr;
+    grid-template-columns: repeat(3, 1fr);
+
+    ul + ul {
+      padding-block-start: 0;
+      padding-inline-start: 0.5rem;
+      margin-block-start: 0;
+      margin-inline-start: 0.5rem;
+      border-block-start: 0;
+      border-inline-start: 1px solid var(--text-10);
+    }
+  }
+
+  .project-wrapper {
+    columns: 2 auto;
+  }
+}
+
+.debug {
+  position: fixed;
+  top: 0;
+  right: 0;
+  display: none;
+  width: 50%;
+  font-size: 3vw;
+  background: rgb(0 0 0 / 50%);
 }

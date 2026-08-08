@@ -12,6 +12,7 @@ type ProjectData = {
   description: string;
   playable: string;
   source: string;
+  imgSource: string;
 };
 
 async function getData<T>(url: string): Promise<T> {
@@ -59,11 +60,18 @@ async function loadProjects() {
       project.description;
 
     const playable = clone.querySelector(".playable") as HTMLAnchorElement;
-    const source = clone.querySelector(".source") as HTMLAnchorElement;
     if (project.playable) playable.href = project.playable;
     else playable.remove();
+
+    const source = clone.querySelector(".source") as HTMLAnchorElement;
     if (project.source) source.href = project.source;
     else source.remove();
+
+    const backgroundImg = clone.querySelector(
+      ".background-img",
+    ) as HTMLImageElement;
+    if (project.imgSource) backgroundImg.src = project.imgSource;
+    else backgroundImg.remove();
 
     container.appendChild(clone);
   });

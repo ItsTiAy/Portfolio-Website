@@ -46,16 +46,19 @@ void main() {
 
   float aa = fwidth(d) * 0.5;
 
-  vec3 color = u_background + 0.6;
+  int bandNum = 5;
+  float colorDiff = 0.025;
+
+  vec3 color = u_background + (colorDiff * float(bandNum));
   float prevMask = 0.0;
 
   float bottomBand = 0.0;
 
-  for (int i = 0; i < 5; i++) {
+  for (int i = 0; i < bandNum; i++) {
     float edge = -0.2 - 0.1 * float(i) + base / pow(2.0, float(i));
     float mask = smoothstep(edge - aa, edge + aa, d);
     float band = clamp(mask - prevMask, 0.0, 1.0);
-    color = mix(color, u_background + 0.1 * float(i + 1), band);
+    color = mix(color, u_background + colorDiff * float(i + 1), band);
 
     bottomBand += band * (1.0 - step(0.5, float(i)));
 

@@ -1,22 +1,15 @@
 import * as twgl from "twgl.js";
-import feather from "feather-icons";
-
-feather.replace();
+import "iconify-icon";
 
 import { inputManager } from "./inputManager.ts";
 import { getComputedColourStyle } from "./utils.ts";
 
+import "./animate.ts";
 import "./styles/reset.css";
 import "./styles/style.css";
 import "./custom_icons.css";
 import "./loadData.ts";
 import "devicon/devicon.min.css";
-import "./animate.ts";
-
-let theme: {
-  background: [number, number, number];
-  foreground: [number, number, number];
-};
 
 // --- Set copyright date
 
@@ -24,16 +17,32 @@ const dateElement = document.getElementById("copyright-year");
 
 if (dateElement) dateElement.textContent = new Date().getFullYear().toString();
 
-// ---
+// --- Set up colours
 
-const backgroundColour = document.querySelector(
+let theme: {
+  background: number[];
+  foreground: number[];
+} = { background: [0, 0, 0], foreground: [0, 0, 0] };
+
+const bgColour = document.querySelector(
   ".background-colour",
 ) as HTMLParagraphElement;
 
 const darkModeQuery = window.matchMedia("(prefers-color-scheme: dark)");
 
+function updateTheme() {
+  return {
+    background: getComputedColourStyle(
+      getComputedStyle(background).getPropertyValue("background-color"),
+    ),
+    foreground: getComputedColourStyle(
+      getComputedStyle(canvas).getPropertyValue("background-color"),
+    ),
+  };
+}
+
 function updateColours(isDark: boolean) {
-  backgroundColour.textContent = isDark
+  bgColour.textContent = isDark
     ? "No. 88 - Sapphire - #293f76"
     : "No. 1 - White - #e8dcba";
 
@@ -42,23 +51,30 @@ function updateColours(isDark: boolean) {
 
 darkModeQuery.addEventListener("change", (e) => updateColours(e.matches));
 
-const backgroundColourContainer = document.querySelector(
+const bgColourContainer = document.querySelector(
   ".header-left",
 ) as HTMLDivElement;
 
-const backgroundColourTooltip = document.querySelector(
+const bgColourTooltip = document.querySelector(
   ".header-left .tooltiptext",
 ) as HTMLDivElement;
 
-backgroundColourContainer.addEventListener("click", function () {
+bgColourContainer.addEventListener("click", function () {
   let current = darkModeQuery.matches ? "#293f76" : "#e8dcba";
 
   navigator.clipboard.writeText(current);
-  backgroundColourTooltip.style.opacity = "1";
+  bgColourTooltip.style.opacity = "1";
+  bgColourTooltip.style.visibility = "visible";
 
   setTimeout(function () {
-    backgroundColourTooltip.style.opacity = "0";
+    bgColourTooltip.style.opacity = "0";
   }, 1000);
+});
+
+bgColourTooltip.addEventListener("transitionend", function () {
+  if (bgColourTooltip.style.opacity == "0") {
+    bgColourTooltip.style.visibility = "hidden";
+  }
 });
 
 // --- Setup background shader
@@ -80,8 +96,6 @@ const arrays = {
 
 const bufferInfo = twgl.createBufferInfoFromArrays(gl, arrays);
 
-updateColours(darkModeQuery.matches);
-
 function getVerticalScrollRatio() {
   const scrollTop = window.scrollY || document.documentElement.scrollTop;
   const scrollHeight = document.documentElement.scrollHeight;
@@ -93,16 +107,7 @@ function getVerticalScrollRatio() {
   return scrollTop / maxScrollTop;
 }
 
-function updateTheme() {
-  return {
-    background: getComputedColourStyle(
-      getComputedStyle(background).getPropertyValue("background-color"),
-    ),
-    foreground: getComputedColourStyle(
-      getComputedStyle(canvas).getPropertyValue("background-color"),
-    ),
-  };
-}
+// --- Render loop
 
 let lastTime: number | null = null;
 
@@ -140,6 +145,9 @@ function render(time: number) {
 
 requestAnimationFrame(render);
 
+// --- After page load
+
 window.addEventListener("load", () => {
+  updateColours(darkModeQuery.matches);
   background.classList.remove("preload");
 });

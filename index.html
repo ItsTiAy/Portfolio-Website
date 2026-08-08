@@ -2,7 +2,24 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <!-- <link rel="icon" type="image/svg+xml" href="/favicon.svg" /> -->
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/icons/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/icons/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/icons/favicon-16x16.png"
+    />
+    <link rel="manifest" href="/icons/site.webmanifest" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Thomas Stanway</title>
   </head>
@@ -14,16 +31,21 @@
     <canvas id="shader"></canvas>
 
     <header class="row">
-      <div class="header-left row tooltip">
+      <div class="badge header-left row tooltip">
         <p class="background-colour"></p>
         <span class="tooltiptext">Colour Copied</span>
       </div>
       <div class="header-right row">
         <div class="social row">
-          <a href="https://github.com/ItsTiAy"><i data-feather="github"></i></a>
-          <a href="https://www.linkedin.com/in/thomas-stanway"
-            ><i data-feather="linkedin"></i
-          ></a>
+          <a href="https://github.com/ItsTiAy">
+            <iconify-icon inline icon="tabler:brand-github"></iconify-icon>
+          </a>
+          <a href="https://www.linkedin.com/in/thomas-stanway">
+            <iconify-icon inline icon="tabler:brand-linkedin"></iconify-icon>
+          </a>
+          <a href="https://tiay.itch.io/">
+            <iconify-icon inline icon="tabler:brand-itch"></iconify-icon>
+          </a>
         </div>
       </div>
     </header>
@@ -49,17 +71,17 @@
               solving problems.
             </p>
             <p>
-              "I have extensive experience using the Unity game engine coding in
+              I have extensive experience using the Unity game engine coding in
               C# as well as knowledge of Java, JavaScript, Python, C, C++,
               Coldfusion, PHP, and MySQL, along with using Github for version
-              control.",
+              control.,
             </p>
           </div>
         </section>
         <section class="keywords card-wrapper stack">
-          <h3>Programming languages</h3>
-          <div class="card">
-            <ul>
+          <h2>Languages, Tools & Software</h2>
+          <div class="keywords-wrapper card">
+            <ul class="keywords-column">
               <li style="--color-hover: #fff; --bg-hover: #004482">
                 <span><i class="devicon-cplusplus-plain"></i>C++</span>
               </li>
@@ -91,10 +113,9 @@
                 <span><i class="devicon-python-plain"></i>Python</span>
               </li>
             </ul>
-          </div>
-          <h3>Tools and Software</h3>
-          <div class="card">
-            <ul>
+
+            <!-- <h3>Tools and Software</h3> -->
+            <ul class="keywords-column">
               <li style="--color-hover: #fff; --bg-hover: #205081">
                 <span><i class="devicon-bitbucket-plain"></i>Bitbucket</span>
               </li>
@@ -111,11 +132,9 @@
                 <span><i class="devicon-github-plain"></i>Github</span>
               </li>
             </ul>
-          </div>
 
-          <h3>Web technologies</h3>
-          <div class="card">
-            <ul>
+            <!-- <h3>Web technologies</h3> -->
+            <ul class="keywords-column">
               <li style="--color-hover: #fff; --bg-hover: #2d3441">
                 <span><i class="devicon-alpinejs-original"></i>AlpineJS</span>
               </li>
@@ -154,11 +173,12 @@
           <h2>Projects</h2>
           <div class="project-wrapper"></div>
           <template id="project-template">
-            <div class="project card">
+            <div class="project card prose">
               <h3 class="title"></h3>
               <p class="description"></p>
               <a class="playable button" target="_blank">Play Project</a>
               <a class="source button" target="_blank">View Source Code</a>
+              <img class="background-img" />
             </div>
           </template>
         </section>
@@ -169,7 +189,7 @@
   </body>
 
   <footer>
-    <p class="copyright">
+    <p class="copyright badge">
       &copy; <span id="copyright-year"></span> Thomas Stanway. All Rights
       Reserved.
     </p>
