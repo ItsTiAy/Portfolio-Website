@@ -1,3 +1,5 @@
+import { cardInteraction } from "./cardInteraction.ts";
+
 type ExperienceData = {
   id: number;
   date: string;
@@ -77,9 +79,11 @@ async function loadProjects() {
   });
 }
 
-function loadData() {
-  loadExperience();
-  loadProjects();
+async function loadData() {
+  await loadExperience();
+  await loadProjects();
+
+  cardInteraction.observe(document.querySelectorAll<HTMLElement>(".card"));
 }
 
 loadData();

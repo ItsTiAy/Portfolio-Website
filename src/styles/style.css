@@ -11,6 +11,9 @@
 
   --primary: light-dark(var(--white), var(--sapphire));
   --secondary: light-dark(var(--maize), #75a7b9);
+
+  /* - Text Colours - */
+
   --text: light-dark(#222, #fff);
   --text-00: color-mix(in srgb, var(--text) 0.0001%);
   --text-05: color-mix(in srgb, var(--text) 5%);
@@ -20,9 +23,16 @@
 
   /* --card-bg: light-dark(rgb(255 255 255 / 50%), rgb(0 0 0 / 50%)); */
   --card-bg: var(--primary);
+  --btn-border-radius: 0rem;
   --title-font: "Nunito", serif;
   --body-font: "PT Sans", sans-serif;
   --stack-gap: 0.5rem;
+
+  /* - Borders - */
+
+  --border-width: 4px;
+  --border-radius: 0rem;
+  --border-colour: var(--text-00);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -63,6 +73,7 @@ h2 {
 h3 {
   font-family: var(--title-font);
   font-size: 1.5rem;
+  font-weight: bold;
 }
 
 h4 {
@@ -153,14 +164,15 @@ iconify-icon {
   gap: 0.25rem;
   padding: 1rem;
   background-color: var(--text-05);
-  border: 1px solid var(--text-10);
-  border-radius: 0.5rem;
+  border: var(--border-width) solid var(--border-colour);
+  border-radius: var(--border-radius);
   transition-timing-function: ease-in-out;
   transition-duration: 200ms;
-  transition-property: background-color;
+  transition-property: background-color, border-color, border-radius;
 
-  &:hover {
+  &:is(:hover, .in-view) {
     background-color: var(--text-10);
+    border-color: var(--text-25);
   }
 }
 
@@ -169,16 +181,16 @@ iconify-icon {
   padding-block: 0.25rem;
   padding-inline: 0.5rem;
   background-color: var(--text-10);
-  border: 1px solid var(--text-10);
-  border-radius: 100vw;
+  border: var(--border-width) solid var(--border-colour);
+  border-radius: var(--border-radius);
 }
 
 .button {
   padding: 0.5rem;
   text-decoration: none;
   background-color: var(--text-10);
-  border: 1px solid var(--text-10);
-  border-radius: 0.25rem;
+  border: var(--border-width) solid var(--border-colour);
+  border-radius: var(--btn-border-radius);
   transition-timing-function: ease-in-out;
   transition-duration: 100ms;
 
@@ -203,7 +215,7 @@ iconify-icon {
     + ul {
       padding-block-start: 0.5rem;
       margin-block-start: 0.5rem;
-      border-block-start: 1px solid var(--text-10);
+      border-block-start: var(--border-width) solid var(--border-colour);
     }
   }
 
@@ -226,7 +238,7 @@ iconify-icon {
   max-width: 100ch;
   padding: 1rem;
   margin-inline: auto;
-  border-radius: 1rem;
+  border-radius: var(--border-radius);
 }
 
 .experience-wrapper {
@@ -274,7 +286,7 @@ iconify-icon {
     transition-property: opacity;
   }
 
-  &:hover .background-img {
+  &:is(:hover, .in-view) .background-img {
     opacity: 0.2;
   }
 }
@@ -321,7 +333,7 @@ footer {
   left: 50%;
   margin-left: -5px;
   content: "";
-  border-color: transparent transparent var(--text-10);
+  border-color: transparent transparent var(--border-colour);
   border-style: solid;
   border-width: 5px;
 }
@@ -353,7 +365,7 @@ footer {
       margin-block-start: 0;
       margin-inline-start: 0.5rem;
       border-block-start: 0;
-      border-inline-start: 1px solid var(--text-10);
+      border-inline-start: var(--border-width) solid var(--border-colour);
     }
   }
 

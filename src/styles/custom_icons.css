@@ -1,0 +1,29 @@
+@font-face {
+  font-family: coldfusion;
+  font-style: normal;
+  font-weight: normal;
+  src: url("fonts/coldfusion.eot?1wjqhc");
+  src:
+    url("../fonts/coldfusion.eot?1wjqhc#iefix") format("embedded-opentype"),
+    url("../fonts/coldfusion.ttf?1wjqhc") format("truetype"),
+    url("../fonts/coldfusion.woff?1wjqhc") format("woff"),
+    url("../fonts/coldfusion.svg?1wjqhc#coldfusion") format("svg");
+  font-display: block;
+}
+
+[class^="icon-"],
+[class*="icon-"] {
+  font-family: coldfusion !important;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  line-height: 1;
+  text-transform: none;
+  speak: never;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-coldfusion-plain::before {
+  content: "\e900";
+}

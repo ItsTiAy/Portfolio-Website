@@ -1,13 +1,13 @@
 import * as twgl from "twgl.js";
 import "iconify-icon";
 
-import { inputManager } from "./inputManager.ts";
 import { getComputedColourStyle } from "./utils.ts";
+import { inputManager } from "./inputManager.ts";
 
 import "./animate.ts";
 import "./styles/reset.css";
 import "./styles/style.css";
-import "./custom_icons.css";
+import "./styles/custom_icons.css";
 import "./loadData.ts";
 import "devicon/devicon.min.css";
 
