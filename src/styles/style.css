@@ -148,13 +148,25 @@ iconify-icon {
   }
 
   .hero-caption {
-    font-size: 5vw;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: baseline;
+    justify-content: space-between;
     opacity: 0;
     transition: opacity 1s ease-in-out;
 
     &.show {
       opacity: 1;
     }
+  }
+
+  .hero-role {
+    font-size: 5vw;
+  }
+
+  .hero-splash {
+    font-size: 2vw;
+    font-style: italic;
   }
 }
 
@@ -351,7 +363,15 @@ footer {
     }
 
     .hero-caption {
-      font-size: 2vw;
+      flex-direction: row;
+    }
+
+    .hero-role {
+      font-size: 3vw;
+    }
+
+    .hero-splash {
+      font-size: 1.5vw;
     }
   }
 

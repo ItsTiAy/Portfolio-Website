@@ -8,7 +8,8 @@ import "./animate.ts";
 import "./styles/reset.css";
 import "./styles/style.css";
 import "./styles/custom_icons.css";
-import "./loadData.ts";
+import { loadData } from "./loadData.ts";
+import { loadSplash } from "./loadSplash.ts";
 import "devicon/devicon.min.css";
 
 // --- Set copyright date
@@ -148,6 +149,8 @@ requestAnimationFrame(render);
 // --- After page load
 
 window.addEventListener("load", () => {
+  loadData();
+  loadSplash();
   updateColours(darkModeQuery.matches);
   background.classList.remove("preload");
 });
